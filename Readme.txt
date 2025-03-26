@@ -1,6 +1,3 @@
-Thanks for downloading this template!
+👋 Hi, I'm Kiel
 
-Template Name: Personal
-Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Welcome to my GitHub profile! I'm a passionate developer and the founder of Creaftech, a software house based in Bali, Indonesia. I specialize in building web applications, APIs, and dynamic platforms for businesses, with a focus on high performance and great user experiences.
