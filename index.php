@@ -145,7 +145,7 @@ include 'konek.php';
 
 <body>
   <!-- Elemen audio -->
-  <audio id="background-music" loop>
+  <audio id="background-music" autoplay loop>
     <source src="assets/music.mp3" type="audio/mpeg">
   </audio>
 
