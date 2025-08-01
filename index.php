@@ -127,12 +127,18 @@ include 'konek.php';
       bottom: 20px;
       left: 20px;
       background-color: white;
-      border: none;
+      border: 3px solid #4CAF50;
+      /* Hijau */
       border-radius: 50%;
-      padding: 10px;
+      padding: 12px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       z-index: 999;
+      transition: box-shadow 0.3s;
+    }
+
+    #music-toggle:hover {
+      box-shadow: 0 4px 10px rgba(0, 128, 0, 0.4);
     }
 
     #music-icon {
@@ -184,7 +190,7 @@ include 'konek.php';
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#about" id="about-link">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <!-- <li><a class="nav-link" href="#services">Services</a></li>-->
           <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
@@ -1013,24 +1019,42 @@ include 'konek.php';
   <script>
     const music = document.getElementById('bg-music');
     const icon = document.getElementById('music-icon');
+    const aboutLink = document.getElementById('about-link');
     let isPlaying = false;
 
-    // Atur volume
+    // volume awal
     music.volume = 0.2;
+
+    function playMusic() {
+      music.play();
+      icon.classList.add('rotating');
+      icon.src = "https://img.icons8.com/ios-filled/50/000000/musical-notes.png";
+      isPlaying = true;
+    }
+
+    function pauseMusic() {
+      music.pause();
+      icon.classList.remove('rotating');
+      icon.src = "https://img.icons8.com/ios-filled/50/000000/mute.png";
+      isPlaying = false;
+    }
 
     function toggleMusic() {
       if (isPlaying) {
-        music.pause();
-        icon.classList.remove('rotating');
-        icon.src = "https://img.icons8.com/ios-filled/50/000000/mute.png";
+        pauseMusic();
       } else {
-        music.play();
-        icon.classList.add('rotating');
-        icon.src = "https://img.icons8.com/ios-filled/50/000000/musical-notes.png";
+        playMusic();
       }
-      isPlaying = !isPlaying;
     }
+
+    // 🔥 Saat klik link "About", musik otomatis play
+    aboutLink.addEventListener("click", function() {
+      if (!isPlaying) {
+        playMusic();
+      }
+    });
   </script>
+
 
 
 
