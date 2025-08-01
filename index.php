@@ -132,12 +132,28 @@ include 'konek.php';
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      z-index: 9999;
+      z-index: 999;
     }
 
-    #music-toggle img {
-      width: 24px;
-      height: 24px;
+    #music-icon {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Animasi putar */
+    .rotating {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
 
@@ -145,7 +161,7 @@ include 'konek.php';
 
 <body>
   <!-- Elemen audio -->
-  <audio id="background-music" autoplay loop>
+  <audio id="bg-music" autoplay loop>
     <source src="assets/music.mp3" type="audio/mpeg">
   </audio>
 
@@ -995,22 +1011,27 @@ include 'konek.php';
     }
   </script>
   <script>
-    const music = document.getElementById('background-music');
+    const music = document.getElementById('bg-music');
     const icon = document.getElementById('music-icon');
-    music.volume = 0.2; // 20% volume
     let isPlaying = false;
+
+    // Atur volume
+    music.volume = 0.2;
 
     function toggleMusic() {
       if (isPlaying) {
         music.pause();
-        icon.src = "https://img.icons8.com/ios-filled/50/000000/mute.png"; // ikon mute
+        icon.classList.remove('rotating');
+        icon.src = "https://img.icons8.com/ios-filled/50/000000/mute.png";
       } else {
         music.play();
-        icon.src = "https://img.icons8.com/ios-filled/50/000000/musical-notes.png"; // ikon musik
+        icon.classList.add('rotating');
+        icon.src = "https://img.icons8.com/ios-filled/50/000000/musical-notes.png";
       }
       isPlaying = !isPlaying;
     }
   </script>
+
 
 
 </body>
