@@ -132,7 +132,7 @@ include 'konek.php';
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      z-index: 999;
+      z-index: 9999;
     }
 
     #music-toggle img {

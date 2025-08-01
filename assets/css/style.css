@@ -1175,7 +1175,7 @@ section .container {
   text-align: right;
   font-size: 13px;
   color: #fff;
-  z-index: 9;
+  z-index: 99;
 }
 
 @media (max-width: 992px) {
