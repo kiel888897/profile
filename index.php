@@ -42,83 +42,135 @@ include 'konek.php';
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js?render=6LdLo6spAAAAAO46WwArY_t1n6QoeY_lChqDi_Yy"></script>
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('6LdLo6spAAAAAO46WwArY_t1n6QoeY_lChqDi_Yy', { action: 'contact_form' }).then(function(token) {
-      document.getElementById('recaptcha_token').value = token;
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LdLo6spAAAAAO46WwArY_t1n6QoeY_lChqDi_Yy', {
+        action: 'contact_form'
+      }).then(function(token) {
+        document.getElementById('recaptcha_token').value = token;
+      });
     });
-  });
-</script>
+  </script>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
-	
+    canvas {
 
-		canvas{
-			
-			position: absolute;
-		  margin: 0;
-		  padding: 0;
-		  display: block; 
-		  touch-action: none; 
-		}
-		a h6 {
-  font-size: 18px; /* Adjust the font size as needed */
-  color: transparent; /* Make the text transparent */
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), /* Red glow effect */
-               0 0 20px rgba(255, 0, 0, 0.5), /* Red glow effect */
-               0 0 30px rgba(255, 0, 0, 0.3), /* Red glow effect */
-               0 0 40px rgba(255, 0, 0, 0.1); /* Red glow effect */
-  background-image: linear-gradient(90deg, #ff00ff, #00ffff); /* Gradient background */
-  background-clip: text; /* Clip the background to the text */
-  -webkit-background-clip: text; /* Clip for older webkit browsers */
-  -webkit-text-fill-color: transparent; /* Transparent text fill for older webkit browsers */
-}
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      display: block;
+      touch-action: none;
+    }
 
-a h6 {
-  animation: blink 1s infinite; /* Apply the blinking animation */
-}
-	
-  /* CSS untuk tombol ketika dalam status disabled */
-  #sendMessageBtn[disabled] {
-    background-color: #ccc; /* Warna latar belakang saat tombol nonaktif */
-    color: #888; /* Warna teks saat tombol nonaktif */
-  }
+    a h6 {
+      font-size: 18px;
+      /* Adjust the font size as needed */
+      color: transparent;
+      /* Make the text transparent */
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7),
+        /* Red glow effect */
+        0 0 20px rgba(255, 0, 0, 0.5),
+        /* Red glow effect */
+        0 0 30px rgba(255, 0, 0, 0.3),
+        /* Red glow effect */
+        0 0 40px rgba(255, 0, 0, 0.1);
+      /* Red glow effect */
+      background-image: linear-gradient(90deg, #ff00ff, #00ffff);
+      /* Gradient background */
+      background-clip: text;
+      /* Clip the background to the text */
+      -webkit-background-clip: text;
+      /* Clip for older webkit browsers */
+      -webkit-text-fill-color: transparent;
+      /* Transparent text fill for older webkit browsers */
+    }
 
-  /* CSS untuk tombol ketika dalam status enabled */
-  #sendMessageBtn:not([disabled]) {
-    background-color: #007bff; /* Warna latar belakang saat tombol aktif */
-    color: #fff; /* Warna teks saat tombol aktif */
-  }
-</style>
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    a h6 {
+      animation: blink 1s infinite;
+      /* Apply the blinking animation */
+    }
+
+    /* CSS untuk tombol ketika dalam status disabled */
+    #sendMessageBtn[disabled] {
+      background-color: #ccc;
+      /* Warna latar belakang saat tombol nonaktif */
+      color: #888;
+      /* Warna teks saat tombol nonaktif */
+    }
+
+    /* CSS untuk tombol ketika dalam status enabled */
+    #sendMessageBtn:not([disabled]) {
+      background-color: #007bff;
+      /* Warna latar belakang saat tombol aktif */
+      color: #fff;
+      /* Warna teks saat tombol aktif */
+    }
+
+    /* Tombol musik di kiri bawah */
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #music-toggle img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
 
 </head>
 
 <body>
+  <!-- Elemen audio -->
+  <audio id="background-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
 
+  <!-- Tombol toggle musik -->
+  <button id="music-toggle" onclick="toggleMusic()">
+    <img id="music-icon" src="https://img.icons8.com/ios-filled/50/000000/musical-notes.png" alt="Toggle Musik" />
+  </button>
   <!-- ======= Header ======= -->
-  
+
 
   <canvas> </canvas>
   <header id="header">
     <div class="container">
-    
+
       <h1><a href="index.php">Yehezkiel S T</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2>I design and code <span>beautifully</span> things, and I love what I do.</h2>
-      
+
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
-         <!-- <li><a class="nav-link" href="#services">Services</a></li>-->
+          <!-- <li><a class="nav-link" href="#services">Services</a></li>-->
           <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -130,13 +182,13 @@ a h6 {
         <a href="https://github.com/kiel888897" class="google-plus"><i class="bi bi-github"></i></a>
         <a href="https://www.instagram.com/kiel888897/" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.linkedin.com/in/kiel888897" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        
-      
+
+
       </div>
-      
+
     </div>
   </header><!-- End Header -->
- 
+
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
 
@@ -155,8 +207,8 @@ a h6 {
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>UI/UX &amp; Programer</h3>
           <p class="fst-italic">
-          Hello! My name is Yehezkiel and I enjoy creating things  creative, dynamic products from start to finish. 
-         </p>
+            Hello! My name is Yehezkiel and I enjoy creating things creative, dynamic products from start to finish.
+          </p>
           <div class="row">
             <div class="col-lg-6">
               <ul>
@@ -168,7 +220,7 @@ a h6 {
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span><?php echo "". $y . " year " . $m . " month " . $d . " day";?></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span><?php echo "" . $y . " year " . $m . " month " . $d . " day"; ?></span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>kiel888897@gmail.com</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>github:</strong><a href="https://github.com/kiel888897"> <span>kiel888897</span></a></li>
@@ -176,7 +228,7 @@ a h6 {
             </div>
           </div>
           <p>
-          Graduate of computer science with experience working across the full-stack of software development. I have built 30+ projects on 7 small teams and am looking for a role with programing where I can grow and continue to learn from other experienced team members.
+            Graduate of computer science with experience working across the full-stack of software development. I have built 30+ projects on 7 small teams and am looking for a role with programing where I can grow and continue to learn from other experienced team members.
           </p>
         </div>
       </div>
@@ -374,37 +426,40 @@ a h6 {
     <!-- End Interests -->
 
     <!-- ======= Testimonials ======= -->
-    
+
     <div class="testimonials container">
 
       <div class="section-title">
         <h2>Testimonials</h2>
-        <a href="testis.php"><h5>Let's make something special &#128540;</h5><h6>Click Here</h6></a><br>
+        <a href="testis.php">
+          <h5>Let's make something special &#128540;</h5>
+          <h6>Click Here</h6>
+        </a><br>
       </div>
-    
+
       <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
-        <?php
-      $sql=mysqli_query($conn,"select * from testimoni where status='0'");
-      $cnt=1;
-      while($row=mysqli_fetch_array($sql)) {
+          <?php
+          $sql = mysqli_query($conn, "select * from testimoni where status='0'");
+          $cnt = 1;
+          while ($row = mysqli_fetch_array($sql)) {
           ?>
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                <?php echo $row['pesan']; ?>
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/<?php echo $row['foto']; ?>" class="testimonial-img" alt="">
-              <h3><?php echo $row['nama']; ?></h3>
-              <h4><?php echo $row['job']; ?></h4>
-              
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <?php echo $row['pesan']; ?>
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/<?php echo $row['foto']; ?>" class="testimonial-img" alt="">
+                <h3><?php echo $row['nama']; ?></h3>
+                <h4><?php echo $row['job']; ?></h4>
+
+              </div>
             </div>
-          </div>
           <?php } ?><!-- End testimonial item -->
 
-         
+
 
         </div>
         <div class="swiper-pagination"></div>
@@ -463,8 +518,8 @@ a h6 {
             <h5>2020 - 2024</h5>
             <p><em>Bali, Indonesia, ID </em></p>
             <p>
-            programmers to develop our authoring tools and e-commerce applications. Collaborate closely with Product Head to track our tactical objectives, improve technical lead and completion frequency.
-            <!--
+              programmers to develop our authoring tools and e-commerce applications. Collaborate closely with Product Head to track our tactical objectives, improve technical lead and completion frequency.
+              <!--
             <ul>
               <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
               <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
@@ -494,7 +549,7 @@ a h6 {
   </section><!-- End Resume Section -->
 
   <!-- ======= Services Section ======= -->
- <!-- <section id="services" class="services">
+  <!-- <section id="services" class="services">
     <div class="container">
 
       <div class="section-title">
@@ -587,8 +642,8 @@ a h6 {
               <p>App</p>
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/videocall.JPG" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Video Broadcast"><i class="bx bx-plus"></i></a>
-               <!-- <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>-->
-               <a href="#" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                <!-- <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>-->
+                <a href="#" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -761,7 +816,7 @@ a h6 {
       </div>
 
       <!-- <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4"> -->
-      <form action="contact.php" method="post" role="form" class="php-email-form mt-4" >
+      <form action="contact.php" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -781,21 +836,21 @@ a h6 {
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
-      
+
         <input type="hidden" id="recaptcha_token" name="recaptcha_token">
 
         <div class="text-center"><button type="submit">Send Message</button></div>
-<!-- <div class="text-center"><button type="submit" id="sendMessageBtn" >Send Message</button></div> -->
-</form>
+        <!-- <div class="text-center"><button type="submit" id="sendMessageBtn" >Send Message</button></div> -->
+      </form>
 
     </div>
   </section><!-- End Contact Section -->
-  
+
   <div class="credits">
-      Designed by <a href="https://noncof.com/">Noncof</a>
+    Designed by <a href="https://noncof.com/">Noncof</a>
   </div>
-  
-  
+
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -808,134 +863,154 @@ a h6 {
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-		var canvas = document.querySelector('canvas');
-		canvas.height = window.innerHeight;
-		canvas.width = window.innerWidth;
-		c = canvas.getContext('2d');
+    var canvas = document.querySelector('canvas');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    c = canvas.getContext('2d');
 
-		window.addEventListener('resize', function () {
-		    canvas.height = window.innerHeight;
-		    canvas.width = window.innerWidth;
+    window.addEventListener('resize', function() {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
 
-		    initCanvas();
-		});
+      initCanvas();
+    });
 
-		var mouse = {
-		    x: undefined,
-		    y: undefined };
+    var mouse = {
+      x: undefined,
+      y: undefined
+    };
 
-		window.addEventListener('mousemove',
-		function (event) {
-		    mouse.x = event.x;
-		    mouse.y = event.y;
-		    drawCircles();
-		});
+    window.addEventListener('mousemove',
+      function(event) {
+        mouse.x = event.x;
+        mouse.y = event.y;
+        drawCircles();
+      });
 
-		window.addEventListener("touchmove",
-		function (event) {
-		    let touch = event.touches[0];
-		    mouse.x = touch.clientX;
-		    mouse.y = touch.clientY;
-		    drawCircles();
-		});
-
-
-		function Circle(x, y, radius, vx, vy, rgb, opacity, birth, life) {
-		    this.x = x;
-		    this.y = y;
-		    this.radius = radius;
-		    this.minRadius = radius;
-		    this.vx = vx;
-		    this.vy = vy;
-		    this.birth = birth;
-		    this.life = life;
-		    this.opacity = opacity;
-
-		    this.draw = function () {
-		        c.beginPath();
-		        c.arc(this.x, this.y, this.radius, Math.PI * 2, false);
-		        c.fillStyle = 'rgba(' + rgb + ',' + this.opacity + ')';
-		        c.fill();
-		    };
-
-		    this.update = function () {
-		        if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
-		            this.vx = -this.vx;
-		        }
-
-		        if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
-		            this.vy = -this.vy;
-		        }
-
-		        this.x += this.vx;
-		        this.y += this.vy;
-
-		        this.opacity = 1 - (frame - this.birth) * 1 / this.life;
-
-		        if (frame > this.birth + this.life) {
-		            for (let i = 0; i < circleArray.length; i++) {
-		                if (this.birth == circleArray[i].birth && this.life == circleArray[i].life) {
-		                    circleArray.splice(i, 1);
-		                    break;
-		                }
-		            }
-		        } else {
-		            this.draw();
-		        }
-		    };
-
-		}
-
-		var circleArray = [];
-
-		function initCanvas() {
-		    circleArray = [];
-		}
-
-		var colorArray = [
-		'24,210,110',
-		'9,80,100',
-		'0,128,255'];
+    window.addEventListener("touchmove",
+      function(event) {
+        let touch = event.touches[0];
+        mouse.x = touch.clientX;
+        mouse.y = touch.clientY;
+        drawCircles();
+      });
 
 
-		function drawCircles() {
-		    for (let i = 0; i < 6; i++) {
-		        let radius = Math.floor(Math.random() * 4) + 2;
-		        let vx = Math.random() * 2 - 1;
-		        let vy = Math.random() * 2 - 1;
-		        let spawnFrame = frame;
-		        let rgb = colorArray[Math.floor(Math.random() * colorArray.length)];
-		        let life = 100;
-		        circleArray.push(new Circle(mouse.x, mouse.y, radius, vx, vy, rgb, 1, spawnFrame, life));
+    function Circle(x, y, radius, vx, vy, rgb, opacity, birth, life) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.minRadius = radius;
+      this.vx = vx;
+      this.vy = vy;
+      this.birth = birth;
+      this.life = life;
+      this.opacity = opacity;
 
-		    }
-		}
+      this.draw = function() {
+        c.beginPath();
+        c.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+        c.fillStyle = 'rgba(' + rgb + ',' + this.opacity + ')';
+        c.fill();
+      };
 
-		var frame = 0;
-		function animate() {
-		    requestAnimationFrame(animate);
-		    frame += 1;
-		    c.clearRect(0, 0, innerWidth, innerHeight);
-		    for (let i = 0; i < circleArray.length; i++) {
-		        circleArray[i].update();
-		    }
+      this.update = function() {
+        if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+          this.vx = -this.vx;
+        }
 
-		}
+        if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+          this.vy = -this.vy;
+        }
 
-		initCanvas();
-		animate();
+        this.x += this.vx;
+        this.y += this.vy;
 
-		// This is just for demo purposes :
-		for (let i = 1; i < 110; i++) {
-		    (function (index) {
-		        setTimeout(function () {
-		            mouse.x = 100 + i * 10;
-		            mouse.y = 100;
-		            drawCircles();
-		        }, i * 10);
-		    })(i);
-		}
-	</script>
+        this.opacity = 1 - (frame - this.birth) * 1 / this.life;
+
+        if (frame > this.birth + this.life) {
+          for (let i = 0; i < circleArray.length; i++) {
+            if (this.birth == circleArray[i].birth && this.life == circleArray[i].life) {
+              circleArray.splice(i, 1);
+              break;
+            }
+          }
+        } else {
+          this.draw();
+        }
+      };
+
+    }
+
+    var circleArray = [];
+
+    function initCanvas() {
+      circleArray = [];
+    }
+
+    var colorArray = [
+      '24,210,110',
+      '9,80,100',
+      '0,128,255'
+    ];
+
+
+    function drawCircles() {
+      for (let i = 0; i < 6; i++) {
+        let radius = Math.floor(Math.random() * 4) + 2;
+        let vx = Math.random() * 2 - 1;
+        let vy = Math.random() * 2 - 1;
+        let spawnFrame = frame;
+        let rgb = colorArray[Math.floor(Math.random() * colorArray.length)];
+        let life = 100;
+        circleArray.push(new Circle(mouse.x, mouse.y, radius, vx, vy, rgb, 1, spawnFrame, life));
+
+      }
+    }
+
+    var frame = 0;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      frame += 1;
+      c.clearRect(0, 0, innerWidth, innerHeight);
+      for (let i = 0; i < circleArray.length; i++) {
+        circleArray[i].update();
+      }
+
+    }
+
+    initCanvas();
+    animate();
+
+    // This is just for demo purposes :
+    for (let i = 1; i < 110; i++) {
+      (function(index) {
+        setTimeout(function() {
+          mouse.x = 100 + i * 10;
+          mouse.y = 100;
+          drawCircles();
+        }, i * 10);
+      })(i);
+    }
+  </script>
+  <script>
+    const music = document.getElementById('background-music');
+    const icon = document.getElementById('music-icon');
+    music.volume = 0.2; // 20% volume
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        icon.src = "https://img.icons8.com/ios-filled/50/000000/mute.png"; // ikon mute
+      } else {
+        music.play();
+        icon.src = "https://img.icons8.com/ios-filled/50/000000/musical-notes.png"; // ikon musik
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 
 
 </body>
