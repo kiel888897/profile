@@ -699,6 +699,36 @@ include 'konek.php';
           </div>
         </div>
 
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/management-villa.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Sistem Management Villa</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/management-villa.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Sistem Management Villa"><i class="bx bx-plus"></i></a>
+                <a href="#" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/management-boats.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Sistem Management Boat</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/management-boats.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Sistem Management Boat"><i class="bx bx-plus"></i></a>
+                <a href="#" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="col-lg-4 col-md-6 portfolio-item filter-card">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/rec.JPG" class="img-fluid" alt="">
@@ -783,6 +813,19 @@ include 'konek.php';
           </div>
         </div>
 
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/villatom.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Website Villa</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/villatom.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Website Villa"><i class="bx bx-plus"></i></a>
+                <a target="_blank" href="https://villatombali.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
