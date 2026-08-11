@@ -655,6 +655,18 @@ include 'konek.php';
       </div>
 
       <div class="row portfolio-container">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/map.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>System Map</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a target="_blank" href="https://totalbali.com/villa/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap">
